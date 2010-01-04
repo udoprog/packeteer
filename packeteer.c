@@ -11,7 +11,7 @@
 
 #define PROGRAM "packeteer"
 
-// example dns package
+// example dns packet
 // captured using wireshark
 char pkt9181[] = {
     0x00, 0x50, 0x56, 0x8f, 0x3c, 0x62, 0x00, 0x23, 
@@ -76,6 +76,7 @@ int main(int argc, char *argv[]) {
             return 1;
         }
     
+    /* read and expand buffer when necessary until eof is reached */
     while ( !feof(stdin) )
         {
             buffer_s *= 2;
@@ -99,7 +100,7 @@ int main(int argc, char *argv[]) {
             a_bytes += r;
         }
     
-    // make sure the entire frame gets sent.
+    /* make sure the entire frame gets sent. */
     while (sent != a_bytes)
         {
             size_t b = send( s_id, buffer, a_bytes - sent, 0 );
