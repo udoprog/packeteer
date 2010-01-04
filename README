@@ -1,0 +1,11 @@
+To build under linux:
+
+    make packeteer
+
+To inject a frame into an interface:
+
+    cat frame.pcap | sudo ./packeteer eth0
+
+You have too be root.
+
+Good luck, have fun!
