@@ -45,7 +45,8 @@ int main(int argc, char *argv[]) {
     if (argc != 2) 
         {
             fprintf( stderr, PROGRAM " usage: packeteer <device>\n" );
-            fprintf( stderr, "    send raw buffer_s to if <if>\n" );
+            fprintf( stderr, "\n" );
+            fprintf( stderr, "    send raw frame to if <device>\n" );
             return 1;
         }
     
