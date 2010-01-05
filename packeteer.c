@@ -72,18 +72,17 @@ int send_file( int socket_id )
     
     // make sure the entire frame gets sent.
     while ( send_buffer_sent < send_buffer_s )
-        {
-            size_t b = send( socket_id, send_buffer + send_buffer_sent, send_buffer_s - send_buffer_sent, 0 );
-            
-            if ( b == -1 )
-                {
-                    fprintf( stderr, PROGRAM ": %s\n", strerror(errno) );
-                    return 1;
-                }
-            
-            send_buffer_sent += b;
-        }
-
+      {
+        size_t b = send( socket_id, send_buffer + send_buffer_sent, send_buffer_s - send_buffer_sent, 0 );
+        
+        if ( b == -1 )
+          {
+            fprintf( stderr, PROGRAM ": %s\n", strerror(errno) );
+            return 1;
+          }
+        
+        send_buffer_sent += b;
+      }
 }
 
 int open_raw_socket( const char *dev )
